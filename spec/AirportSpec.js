@@ -60,4 +60,11 @@ describe("Airport", function() {
       expect(function(){airport.land(plane)}).toThrowError("Can't land it's stormy");
     })
   });
+
+  it("should have a max capacity of 20", function(){
+    for(var i = 1; i <= 20; i++){
+      airport.land(plane);
+    }
+    expect(function(){airport.land(plane)}).toThrowError("Can't land airport is full");
+  })
 });
