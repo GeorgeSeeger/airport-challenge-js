@@ -9,5 +9,8 @@ var Airport = function() {
   };
 
   Airport.prototype.takeOff = function(plane) {
+    if (!this.hangar.includes(plane)) {
+      throw new Error("Plane is not on this airport")
+    };
     plane.takeOff();
   };
