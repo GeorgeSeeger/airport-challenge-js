@@ -1,9 +1,16 @@
 var Airport = function() {
   this.hangar = [];
   this.isStormy = Math.random() > 0.5 ? true : false;
+  this.maxCapacity = 5
 }
+  Airport.prototype._isFull = function() {
+    return this.hangar.length > this.maxCapacity;
+  };
 
   Airport.prototype.land = function(plane) {
+    if (this._isFull()) {
+      throw new Error("Airport is full")
+    };
     plane.land();
     this.hangar.push(plane);
   };

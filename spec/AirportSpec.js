@@ -19,6 +19,13 @@ describe("Airport", function() {
     it("should store airplanes", function(){
       expect(airport.hangar).toEqual([plane]);
     });
+
+    it("does not allow planes in when full", function(){
+      for (i = 0; i < airport.maxCapacity; i++) {
+        airport.land(plane)
+      }
+      expect(function(){airport.land(plane)}).toThrowError("Airport is full")
+    });
   });
 
   describe("takeOff", function() {
@@ -37,7 +44,7 @@ describe("Airport", function() {
       airport.land(plane);
       airport.isStormy = true;
     })
-    
+
     it("should not take off when stormy", function(){
       var message = "Can't take off as it is stormy";
       expect(function(){airport.takeOff(plane)}).toThrowError(message);
