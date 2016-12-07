@@ -11,6 +11,9 @@ var Airport = function() {
     if (this._isFull()) {
       throw new Error("Airport is full")
     };
+    if (this.isStormy){
+      throw new Error("Can't land as it is stormy");
+    }
     plane.land();
     this.hangar.push(plane);
   };

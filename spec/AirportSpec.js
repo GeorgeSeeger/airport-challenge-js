@@ -49,5 +49,10 @@ describe("Airport", function() {
       var message = "Can't take off as it is stormy";
       expect(function(){airport.takeOff(plane)}).toThrowError(message);
     });
+
+    it("should not allow planes to land when stormy", function(){
+      var message = "Can't land as it is stormy";
+      expect(function(){airport.land(plane)}).toThrowError(message);
+    });
   });
 });
