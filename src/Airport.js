@@ -26,4 +26,5 @@ var Airport = function() {
       throw new Error("Can't take off as it is stormy")
     }
     plane.takeOff();
+    this.hangar.splice( this.hangar.indexOf(plane),1);
   };

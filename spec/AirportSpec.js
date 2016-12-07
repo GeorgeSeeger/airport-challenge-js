@@ -37,6 +37,11 @@ describe("Airport", function() {
     it("checks if a plane taking off is in a hangar", function() {
       expect(function(){airport.takeOff(plane)}).toThrowError("Plane is not on this airport")
     });
+    it("removes a plane from hangar during takeOff", function() {
+      airport.land(plane);
+      airport.takeOff(plane);
+      expect(airport.hangar).not.toContain(plane)
+    });
   });
 
   describe("Weather", function(){
