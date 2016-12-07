@@ -7,9 +7,16 @@ describe("Airport", function() {
   });
 
   describe("land", function() {
-    it("instructs a plane to land", function() {
+    beforeEach(function(){
       airport.land(plane);
+    });
+    
+    it("instructs a plane to land", function() {
       expect(plane.land).toHaveBeenCalled();
+    });
+
+    it("should store airplanes", function(){
+      expect(airport.hangar).toEqual([plane]);
     });
   });
 
